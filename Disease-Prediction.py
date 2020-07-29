@@ -236,5 +236,5 @@ for m in methods:
     df.to_csv(m +'_ranked-features.csv', sep=',',index=False)
     np.savetxt(m+'_estimatedlabels.csv', est_labels.astype(np.int),delimiter=', ',fmt='%d')
 tsne_plot(2)
-#file.close()
+file.close()
     
