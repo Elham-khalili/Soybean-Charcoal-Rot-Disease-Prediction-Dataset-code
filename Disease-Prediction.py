@@ -225,16 +225,16 @@ def plot_confusion_matrix(cm, classes, name, normalize=False, cmap=plt.cm.Blues)
     plt.close()
     
 #test models on the data
-#methods = ['lr-l1','lr-l2','mlp','rf','gbt','svm']
-#file = open('performance.txt',"w")
-#file.write('Method, Accuracy, Sensitivity, Specificity, AUC, Precision, Negative Predictive Value, F1 Score, MCC \n')
-#for m in methods:
-#    sorted_features, accm, senm, spsm, roc_aucm, prsm, npvm, f1scorem, est_labels,mccm = testv1(m)
-#    file.write(m + ':, ')
-#    file.write("%0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f,  %0.2f \u00B1 %0.2f \n" % (np.mean(accm),np.std(accm),np.mean(senm),np.std(senm),np.mean(spsm),np.std(spsm),np.mean(roc_aucm),np.std(roc_aucm),np.mean(prsm),np.std(prsm),np.mean(npvm),np.std(npvm),np.mean(f1scorem),np.std(f1scorem),np.mean(mccm),np.std(mccm)))
-#    df = pd.DataFrame(data={"features": sorted_features})
-#    df.to_csv(m +'_ranked-features.csv', sep=',',index=False)
-#    np.savetxt(m+'_estimatedlabels.csv', est_labels.astype(np.int),delimiter=', ',fmt='%d')
+methods = ['lr-l1','lr-l2','mlp','rf','gbt','svm']
+file = open('performance.txt',"w")
+file.write('Method, Accuracy, Sensitivity, Specificity, AUC, Precision, Negative Predictive Value, F1 Score, MCC \n')
+for m in methods:
+    sorted_features, accm, senm, spsm, roc_aucm, prsm, npvm, f1scorem, est_labels,mccm = testv1(m)
+    file.write(m + ':, ')
+    file.write("%0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f, %0.2f \u00B1 %0.2f,  %0.2f \u00B1 %0.2f \n" % (np.mean(accm),np.std(accm),np.mean(senm),np.std(senm),np.mean(spsm),np.std(spsm),np.mean(roc_aucm),np.std(roc_aucm),np.mean(prsm),np.std(prsm),np.mean(npvm),np.std(npvm),np.mean(f1scorem),np.std(f1scorem),np.mean(mccm),np.std(mccm)))
+    df = pd.DataFrame(data={"features": sorted_features})
+    df.to_csv(m +'_ranked-features.csv', sep=',',index=False)
+    np.savetxt(m+'_estimatedlabels.csv', est_labels.astype(np.int),delimiter=', ',fmt='%d')
 tsne_plot(2)
 #file.close()
     
